@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        String[] passwords = {"password", "password123", "Password123", "Password123!"};
+        String[] passwords = {"u ma", "u ma123", "Uma123", "Umama123!"};
 
         for (String password : passwords) {
             PasswordValidator.ValidationResult result = PasswordValidator.validate(password);
