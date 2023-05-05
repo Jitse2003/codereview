@@ -2,33 +2,31 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class PasswordValidator {
-
+public class Validator {
     public static ValidationResult validate(String password) {
         List<String> errors = new ArrayList<>();
 
         if (password.length() < 8) {
             errors.add("Password must be at least 8 characters");
         }
-
-        int numCount = 0;
-        int capCount = 0;
+        int digitCount = 0;
+        int uppercaseCount = 0;
         int specialCount = 0;
+
         for (char c : password.toCharArray()) {
             if (Character.isDigit(c)) {
-                numCount++;
+                digitCount++;
             } else if (Character.isUpperCase(c)) {
-                capCount++;
+                uppercaseCount++;
             } else if (!Character.isLetterOrDigit(c)) {
                 specialCount++;
             }
         }
-
-        if (numCount < 2) {
+        if (digitCount < 2) {
             errors.add("The password must contain at least 2 numbers");
         }
 
-        if (capCount < 1) {
+        if (uppercaseCount < 1) {
             errors.add("Password must contain at least one capital letter");
         }
 
